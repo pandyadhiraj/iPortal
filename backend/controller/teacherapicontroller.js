@@ -87,7 +87,7 @@ export async function teacherlogin(req, res) {
           process.env.JWT_KEY,
           { expiresIn: '24h' }
         )
-        return res.cookie('token', token).status(200).send({
+        return res.cookie('token', token, { httpOnly:true, secure:true, sameSite:"none"}).status(200).send({
           status: 'ok, teacher logged in',
           user: 'teacher',
           token: token,
