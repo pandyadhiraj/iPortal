@@ -104,7 +104,7 @@ export async function studentlogin(req, res) {
           { expiresIn: '24h' }
         )
 
-        return res.cookie('token', token, { domain: ".onrender.com", httpOnly: true, secure: true, sameSite: "none"}).status(200).send({
+        return res.cookie('token', token, { httpOnly: true, secure: true, sameSite: "none"}).status(200).send({
           status: 'ok, student logged in',
           user: 'student',
           token: token,
